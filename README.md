@@ -1,54 +1,118 @@
-# React + TypeScript + Vite
+# Project Cost Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a mini web application built as part of a Frontend Developer Internship evaluation task. 
+It allows users to manage a project, its items, and all associated costs with real-time updates and secure authentication.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Add, edit, and delete items with their costs
+- Add, edit, and delete other costs with descriptions and amounts
+- Display total project cost (sum of items and other costs)
+- State management using Redux Toolkit
+- UI built with Chakra UI for a clean and responsive design
+- Data persistence using Firebase Firestore
+- User authentication with Firebase Authentication (Google Sign-In)
+- Bonus features:
+  - Data persistence with localStorage
+  - Cost filters and sorting options
+  - Responsive design for mobile and desktop
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React with Hooks and component-based architecture
+- Redux Toolkit for state management
+- Chakra UI for styling
+- Firebase (Authentication and Firestore) for backend services
+- TypeScript for type safety
+- Vite as the build tool
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or higher)
+- npm (v6 or higher)
+- Firebase account and project setup
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone <repository-url>
+   cd project-cost-tracker/project-cost-tracker
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Configure Firebase:
+
+   - Update the `src/firebaseConfig.ts` file with your Firebase project credentials.
+   - Add your local development URL and deployed site URL to Firebase Authentication authorized domains.
+
+### Running Locally
+
+Start the development server:
+
+```bash
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Open your browser at `http://localhost:3000` (or the port shown in the terminal).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Building for Production
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+Build the project:
+
+```bash
+npm run build
 ```
+
+Preview the production build locally:
+
+```bash
+npm run preview -- --host
+```
+
+### Deployment
+
+Deploy the built project to any static hosting service such as Netlify, Vercel, or GitHub Pages.
+
+For Netlify deployment:
+
+1. Install Netlify CLI:
+
+   ```bash
+   npm install -g netlify-cli
+   ```
+
+2. Deploy:
+
+   ```bash
+   netlify deploy
+   ```
+
+3. Follow the prompts to select the `dist` folder and configure your site.
+
+4. Publish the site:
+
+   ```bash
+   netlify deploy --prod
+   ```
+
+## Troubleshooting
+
+- If login fails on the deployed site, ensure your hosting domain is added to the Firebase Authentication authorized domains list.
+- Check firewall settings if hosting locally and others cannot access the preview server.
+
+## License
+
+This project is licensed under the MIT License.
+
+## Contact
+
+For questions or support, please contact the project maintainer.
